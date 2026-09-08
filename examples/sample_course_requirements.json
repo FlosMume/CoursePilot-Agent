@@ -1,0 +1,43 @@
+{
+  "course_code": "DEMO405",
+  "course_title": "Introduction to Data Science & Analytics",
+  "weeks": 13,
+  "enrollment": 100,
+  "assessments": [
+    {
+      "name": "In-class exercises",
+      "weight": 10,
+      "week": 13
+    },
+    {
+      "name": "Labs",
+      "weight": 10,
+      "week": 10
+    },
+    {
+      "name": "Midterm",
+      "weight": 30,
+      "week": 8
+    },
+    {
+      "name": "Project",
+      "weight": 20,
+      "week": 13
+    },
+    {
+      "name": "Final exam",
+      "weight": 35,
+      "week": 13
+    }
+  ],
+  "constraints": [
+    "Assessment weights must total 100%.",
+    "All scheduled assessments must fall within Weeks 1-13.",
+    "Instructor approval is required for changes to assessment weights."
+  ],
+  "grading_workload": {
+    "assessment": "Project",
+    "submissions_per_student": 1,
+    "minutes_per_submission": 12
+  }
+}
