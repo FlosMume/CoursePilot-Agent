@@ -1,0 +1,19 @@
+{
+  "course_code": "DEMO713",
+  "course_title": "Project Management",
+  "weeks": 13,
+  "enrollment": 90,
+  "requirements": {
+    "midterm_required": true,
+    "final_exam_required": true,
+    "project_required": true,
+    "labs": 10
+  },
+  "constraints": [
+    "Assessment weights must total 100%.",
+    "Midterm must be between 20% and 30%.",
+    "Final exam must be at least 25%.",
+    "No assessment may be scheduled after Week 13.",
+    "Instructor approval is required before changing assessment weights."
+  ]
+}
