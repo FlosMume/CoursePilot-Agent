@@ -87,7 +87,7 @@ The sample input intentionally contains a course-design conflict:
     {"name": "Final exam", "weight": 35, "week": 13}
   ]
 }
-
+```
 ## Repository structure
 
 ```text
