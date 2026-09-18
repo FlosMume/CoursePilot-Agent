@@ -72,7 +72,7 @@ AWS infrastructure.
        alt="CoursePilot architecture"
        width="850">
 </p>
-```
+
 ## Repository structure
 
 ```text
