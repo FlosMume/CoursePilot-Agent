@@ -88,6 +88,22 @@ The sample input intentionally contains a course-design conflict:
   ]
 }
 ```
+These weights total **105%**, even though the course requirements state that
+assessment weights must total 100%.
+
+CoursePilot instructs the planning model to preserve explicitly supplied
+assessment values rather than silently changing them. The generated plan is
+then checked by deterministic Python validators.
+
+For this sample conflict, the weight validator reports:
+
+```json
+{
+  "valid": false,
+  "total_weight": 105.0,
+  "difference_from_100": 5.0,
+  "message": "Assessment weights total 105.0%, not 100%."
+}
 ## Repository structure
 
 ```text
