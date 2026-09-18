@@ -105,6 +105,12 @@ For this sample conflict, the weight validator reports:
   "message": "Assessment weights total 105.0%, not 100%."
 }
 ```
+Because deterministic validation fails, the pipeline status becomes:
+
+```text
+needs_instructor_review
+```
+
 ## Repository structure
 
 ```text
