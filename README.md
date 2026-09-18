@@ -64,11 +64,14 @@ Structured course requirements
   names, course weeks, and grading workload
 - **Amazon Bedrock AgentCore** — planned managed runtime / observability layer
 - **Amazon S3** — planned document and artifact storage
-![CoursePilot architecture](docs/architecture/coursepilot_architecture_v0.1.png)
 AgentCore and S3 are intentionally outside this integration step. The present
 goal is to make the existing CoursePilot MVP work end to end before adding more
 AWS infrastructure.
-
+<p align="center">
+  <img src="docs/architecture/coursepilot_architecture_v0.1.png"
+       alt="CoursePilot architecture"
+       width="850">
+</p>
 ## Repository structure
 
 ```text
