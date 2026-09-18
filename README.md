@@ -53,6 +53,7 @@ Structured course requirements
        |         |
        v         v
    Final plan   Instructor review
+```
 
 ## Architecture
 
