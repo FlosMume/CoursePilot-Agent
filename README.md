@@ -73,6 +73,21 @@ AWS infrastructure.
        width="850">
 </p>
 
+## Example: catching a conflicting assessment plan
+
+The sample input intentionally contains a course-design conflict:
+
+```json
+{
+  "assessments": [
+    {"name": "In-class exercises", "weight": 10, "week": 13},
+    {"name": "Labs", "weight": 10, "week": 10},
+    {"name": "Midterm", "weight": 30, "week": 8},
+    {"name": "Project", "weight": 20, "week": 13},
+    {"name": "Final exam", "weight": 35, "week": 13}
+  ]
+}
+
 ## Repository structure
 
 ```text
