@@ -104,6 +104,7 @@ For this sample conflict, the weight validator reports:
   "difference_from_100": 5.0,
   "message": "Assessment weights total 105.0%, not 100%."
 }
+```
 ## Repository structure
 
 ```text
