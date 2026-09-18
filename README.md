@@ -1,52 +1,58 @@
 # CoursePilot-Agent
 
-An agentic course-development and quality-assurance assistant built with the
-**Strands Agents SDK** and **Amazon Bedrock**.
+**Agentic course planning with deterministic quality assurance and human-in-the-loop review.**
 
-> **MVP status:** CoursePilot now runs an end-to-end local workflow in which
-> structured course requirements are converted into a proposed course plan by
-> Strands + Amazon Bedrock + Amazon Nova 2 Lite, checked by deterministic Python
-> validators, and returned for instructor review.
+CoursePilot converts structured course requirements into a proposed course plan using
+**Strands Agents SDK + Amazon Bedrock**, validates hard constraints with deterministic
+Python rules, and returns conflicts and recommendations for **instructor review**.
+
+> **MVP status:** The end-to-end local workflow is operational. Structured course
+> requirements are processed by Strands + Amazon Bedrock + Amazon Nova 2 Lite,
+> converted into a structured `CoursePlan`, checked by deterministic validators,
+> and returned with an instructor-facing review.
 
 ## Why CoursePilot?
 
-Course development is more than generating lecture content. Instructors must
-translate requirements into weekly schedules, assessments, labs, projects,
-grading plans, and teaching-assistant workloads while keeping dates, weights,
-policies, and workload constraints consistent.
+Course development is not simply a content-generation task. Instructors must coordinate:
 
-CoursePilot is designed to automate repetitive coordination work while keeping
-the instructor as the final decision maker.
+- weekly topics and schedules
+- assessments and grading weights
+- labs and projects
+- course policies and constraints
+- teaching-assistant workloads
+- dates and dependencies
 
-## MVP workflow
+A generative model can help with planning and reasoning, but important course rules
+should not depend on probabilistic generation alone.
+
+CoursePilot therefore separates **AI-assisted planning** from **deterministic validation**.
+
+> **Design principle:** Use the LLM for planning and reasoning; use deterministic
+> Python for rules.
+
+## How it works
 
 ```text
-CoursePilot JSON input
-        |
-        v
-Strands Agents SDK
-        |
-        v
-Amazon Bedrock / Nova 2 Lite
-        |
-        v
-Structured proposed CoursePlan
-        |
-        v
-Deterministic Python validators
-        |
-        v
-Instructor review / final output
-```
-
-The key design principle is:
-
-> **Use the LLM for planning and reasoning; use deterministic Python for rules.**
-
-The current pipeline does **not** silently repair instructor-defined assessment
-weights or dates. If the source data contains a conflict, CoursePilot preserves
-the explicit values, reports the deterministic validation failure, and presents
-the issue for instructor review.
+Structured course requirements
+            |
+            v
+     Strands Agents SDK
+            |
+            v
+ Amazon Bedrock / Nova 2 Lite
+            |
+            v
+   Structured CoursePlan
+            |
+            v
+ Deterministic Python validation
+            |
+       +----+----+
+       |         |
+     valid     conflict
+       |         |
+       v         v
+   Final plan   Instructor review
 
 ## Architecture
 
