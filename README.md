@@ -232,37 +232,52 @@ instructor review.
 PYTHONPATH=src python -m unittest discover -s tests -v
 ```
 
-## Current deterministic checks
+## Current capabilities
+
+### Agentic planning
+
+- generates a structured `CoursePlan` from course requirements
+- uses Strands Agents SDK with Amazon Bedrock
+- currently defaults to Amazon Nova 2 Lite
+- produces an instructor-facing review after validation
+
+### Deterministic quality assurance
+
+CoursePilot currently checks:
 
 - assessment weights total exactly 100%
 - assessment names are unique
-- assessment week numbers fall inside the course length
-- explicit instructor-defined assessment weights/weeks are preserved through
-  the LLM planning step
-- simple grading-workload hours can be estimated
+- assessment week numbers fall within the course length
+- instructor-defined assessment weights and weeks are preserved through the
+  LLM planning step
+- grading workload can be estimated from enrollment and marking-time inputs
 
-## Tests
+The deterministic validation layer remains authoritative for rule-based checks.
 
-Existing deterministic tests can still be run with:
+## Roadmap
 
-```bash
-PYTHONPATH=src python -m unittest discover -s tests -v
-```
+### Current MVP
 
-No additional test files are required for this integration step.
+- [x] structured JSON course requirements
+- [x] Strands + Amazon Bedrock planning workflow
+- [x] structured `CoursePlan` output
+- [x] deterministic Python validation
+- [x] source-assessment integrity checking
+- [x] instructor-facing review
+- [x] local end-to-end execution
+- [x] deterministic unit tests
 
-## Next AWS phase
+### Next AWS phase
 
-After the end-to-end MVP is stable, the next infrastructure steps can be:
+- [ ] package and deploy the CoursePilot agent with Amazon Bedrock AgentCore
+- [ ] add Amazon S3 for course inputs, generated plans, and review artifacts
+- [ ] add observability and run history
+- [ ] expand the instructor-review workflow
+- [ ] add richer validation and course-planning rules
 
-1. package/deploy the CoursePilot agent with Amazon Bedrock AgentCore
-2. add Amazon S3 for course inputs, generated plans, and review artifacts
-3. add observability and run history
-4. expand the instructor-review workflow
+## Hackathon
 
-## Hackathon track
-
-**Professional Agents**
+**Track:** Professional Agents
 
 ## License
 
