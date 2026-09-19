@@ -110,6 +110,13 @@ Because deterministic validation fails, the pipeline status becomes:
 ```text
 needs_instructor_review
 ```
+The instructor-review step can explain the conflict and suggest correction
+options, but it does not automatically change instructor-defined assessment
+weights.
+
+This illustrates the central CoursePilot pattern:
+
+> **LLM planning → deterministic validation → human decision**
 
 ## Repository structure
 
