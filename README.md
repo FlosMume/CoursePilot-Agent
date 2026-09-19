@@ -148,33 +148,41 @@ src/coursepilot/
 
 ## Quick start
 
-### Prerequisites
+## Quick start
 
-- Python 3.10+
-- AWS account with Amazon Bedrock access
-- AWS credentials configured locally
-- permission to invoke the selected Bedrock model
+### 1. Clone the repository
 
-### Create and activate a virtual environment
+```bash
+git clone https://github.com/FlosMume/CoursePilot-Agent.git
+cd CoursePilot-Agent
+```
+
+### 2. Create a virtual environment
+
+Linux / macOS / WSL:
 
 ```bash
 python -m venv .venv
 source .venv/bin/activate
 ```
 
-On Windows PowerShell:
+Windows PowerShell:
 
 ```powershell
+python -m venv .venv
 .venv\Scripts\Activate.ps1
 ```
 
-### Install dependencies
+### 3. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Configure the model
+### 4. Configure AWS and the Bedrock model
+
+CoursePilot requires AWS credentials with permission to invoke the selected
+Amazon Bedrock model.
 
 Linux / macOS / WSL:
 
@@ -183,20 +191,22 @@ export AWS_REGION=us-west-2
 export COURSEPILOT_MODEL_ID=global.amazon.nova-2-lite-v1:0
 ```
 
-PowerShell:
+Windows PowerShell:
 
 ```powershell
 $env:AWS_REGION="us-west-2"
 $env:COURSEPILOT_MODEL_ID="global.amazon.nova-2-lite-v1:0"
 ```
 
-### Run CoursePilot
+### 5. Run the sample workflow
+
+Linux / macOS / WSL:
 
 ```bash
 PYTHONPATH=src python -m coursepilot examples/sample_course_requirements.json
 ```
 
-The program now returns structured JSON containing:
+The output is structured JSON containing:
 
 ```text
 pipeline
@@ -207,15 +217,15 @@ validation
 instructor_review
 ```
 
-If the proposed assessment weights do not total 100%, the deterministic
-validator marks the plan invalid and the final status becomes:
+With the included sample input, the assessment weights total 105%, so the
+deterministic validator should flag the conflict and the pipeline should require
+instructor review.
 
-```text
-needs_instructor_review
+### 6. Run the tests
+
+```bash
+PYTHONPATH=src python -m unittest discover -s tests -v
 ```
-
-CoursePilot should then explain the conflict and provide options without silently
-changing instructor-defined values.
 
 ## Current deterministic checks
 
