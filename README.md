@@ -148,8 +148,6 @@ src/coursepilot/
 
 ## Quick start
 
-## Quick start
-
 ### 1. Clone the repository
 
 ```bash
