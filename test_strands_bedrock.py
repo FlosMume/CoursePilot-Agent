@@ -2,7 +2,7 @@ from strands import Agent
 from strands.models import BedrockModel
 
 model = BedrockModel(
-    model_id="us.amazon.nova-2-lite-v1:0",
+    model_id="global.amazon.nova-2-lite-v1:0"
     region_name="us-west-2",
     temperature=0.2,
 )
