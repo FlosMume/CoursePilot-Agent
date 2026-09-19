@@ -1,5 +1,7 @@
 # CoursePilot-Agent
 
+[![Tests](https://github.com/FlosMume/CoursePilot-Agent/actions/workflows/tests.yml/badge.svg)](https://github.com/FlosMume/CoursePilot-Agent/actions/workflows/tests.yml)
+
 **Agentic course planning with deterministic quality assurance and human-in-the-loop review.**
 
 CoursePilot converts structured course requirements into a proposed course plan using
